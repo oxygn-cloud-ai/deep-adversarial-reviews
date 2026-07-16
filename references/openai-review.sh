@@ -41,7 +41,7 @@ else
 fi
 
 # --- System prompt ---
-SYSTEM_PROMPT="You are an adversarial reviewer. Find every flaw in the document below. Be sceptical. Do not rubber-stamp. Report findings ranked by severity: CRITICAL > HIGH > MEDIUM > LOW. For each finding provide: (1) severity, (2) concrete evidence with section or line references, (3) recommended fix. If you find no flaws after thorough analysis, state 'No findings' with a brief justification of the areas checked."
+SYSTEM_PROMPT="You are an adversarial reviewer. Find every flaw in the document below. Be deeply adversarial. Do not rubber-stamp. Report findings ranked by severity: CRITICAL > HIGH > MEDIUM > LOW. For each finding provide: (1) severity, (2) concrete evidence with section or line references, (3) recommended fix. If you find no flaws after thorough analysis, state 'No findings' with a brief justification of the areas checked."
 
 # --- Call OpenAI with retry ---
 FINDINGS=""
@@ -64,8 +64,7 @@ jq -n \
       {role: "system", content: $system},
       {role: "user", content: $content}
     ],
-    temperature: 0.2,
-    max_tokens: 32000
+    max_completion_tokens: 32000
   }' > "$TMP_PAYLOAD"
 
 for attempt in $(seq 1 $MAX_ATTEMPTS); do

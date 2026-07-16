@@ -1,0 +1,11 @@
+FROM python:3.12-slim
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    asciinema \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /demo
+COPY gilded_rose.py refactored.py record-demo.sh ./
+RUN chmod +x record-demo.sh
+
+CMD ["asciinema", "play", "/demo/demo.cast"]
