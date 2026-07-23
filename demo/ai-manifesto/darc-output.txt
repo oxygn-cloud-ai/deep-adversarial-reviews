@@ -1,0 +1,222 @@
+═══ Round 1 (Self) — Adversarial review ═══
+
+CRITICAL — Five absolute prohibitions with zero enforcement
+  The manifesto contains five "Never" statements: "Never let
+  an LLM speak for you" (P1), "Never let an LLM think for you"
+  (P2), "Never let an LLM own your work" (P3), "Never let an
+  LLM replace your curiosity" (P4), "Never let an LLM
+  discourage someone else" (P5). There is no consequence
+  specified for violating any of them. No process for
+  removing signatories who egregiously violate the principles.
+  No governance structure. No review body. A manifesto whose
+  only enforcement mechanism is the signatory's own conscience
+  is, at best, aspirational.
+
+HIGH — Principle 1 contradicts Principle 5
+  P1: "Never let an LLM speak for you." P5: "AI should empower
+  people and reduce barriers. Foster inclusion." Translation
+  tools, grammar support for non-native speakers, augmentative
+  communication for people with disabilities, and screen-reader
+  text generation ALL require an LLM to produce text that
+  represents the user. The absolute prohibition in P1 would
+  ban the very assistive technology that P5's inclusion
+  mandate requires. A document cannot simultaneously forbid
+  and demand the same category of use.
+
+HIGH — No data-safeguard clause
+  The manifesto governs how signatories USE AI but says nothing
+  about what data they may submit to AI services. Someone can
+  follow all five principles while uploading private
+  repositories, API keys, customer PII, medical records, or
+  proprietary source code to a third-party model. The document
+  addresses behavioural ethics but ignores the data-security
+  dimension of AI use entirely.
+
+MEDIUM — "87 people have signed" — unverifiable claim
+  No names are published. No audit trail exists. No public
+  ledger of signatories. A reader cannot confirm whether 87
+  real people signed or whether the number is inflated for
+  social proof. For a document about responsibility and
+  accountability, the signatory count itself is unaccountable.
+
+MEDIUM — Signatory mechanism is a GitHub OAuth click
+  Signing requires one click — no cost, no friction, no
+  ongoing commitment. You can unsign as easily as you signed.
+  A document demanding "absolute responsibility" secured by
+  a reversible OAuth token has a commitment asymmetry: the
+  principles demand permanence; the mechanism offers none.
+
+MEDIUM — No jurisdiction or liability framework
+  The principles use absolute language ("absolute
+  responsibility," "Never") without acknowledging that
+  different jurisdictions have materially different laws
+  governing AI use, liability assignment, and data handling.
+  A signatory in the EU operates under the AI Act and GDPR.
+  A signatory in the United States does not. The manifesto
+  is jurisdiction-blind.
+
+LOW — Versioned at 1.0 with no amendment process
+  A document about principles for a technology that changes
+  monthly cannot itself be changed. It is frozen at 1.0 —
+  a snapshot, not a living standard. The version number
+  implies evolution; the absence of any amendment procedure
+  precludes it.
+
+LOW — CC-BY-NC-SA-4.0 on a manifesto about reducing barriers
+  The text champions openness and inclusion. The licence
+  imposes a non-commercial restriction. Anyone who wants to
+  include the manifesto in a commercial training programme,
+  a paid workshop, or a book must negotiate a separate
+  licence. The licence and the text are in tension.
+
+8 findings: 1 CRITICAL, 2 HIGH, 3 MEDIUM, 2 LOW
+
+═══ Round 1 (GPT-5.6) — Cross-model verification ═══
+
+Calling GPT-5.6...
+## Findings
+
+### HIGH
+
+1. **The manifesto omits core operational risks of AI-assisted development**
+   - **Evidence:** The five principles (§ “The 5 Principles,” lines 20–40) address voice, strategy, accountability, learning, and inclusion, but say nothing about:
+     - confidential or personal data entered into AI systems;
+     - secure handling and retention of prompts;
+     - generated-code vulnerabilities;
+     - dependency or supply-chain risks;
+     - intellectual-property and license provenance;
+     - factual verification and testing;
+     - disclosure requirements;
+     - use in safety-critical or regulated contexts.
+   - **Impact:** A person could comply with every stated principle while leaking credentials, incorporating incompatible code, shipping an exploitable vulnerability, or unlawfully processing personal data.
+   - **Recommended fix:** Add explicit principles or a practical checklist covering privacy, security, provenance, licensing, verification, disclosure, and escalation for high-risk uses. For example: “Do not submit secrets or personal data without authorization,” “Review and test generated artifacts,” and “Verify licenses and provenance before incorporation.”
+
+2. **“Take absolute responsibility” is unrealistic and obscures shared institutional accountability**
+   - **Evidence:** Principle 3, lines 29–32: “Take absolute responsibility for the final result” and “Credit and accountability remain with you.”
+   - **Impact:** Development outcomes commonly involve reviewers, maintainers, employers, model providers, tool vendors, deployers, and governance processes. Assigning “absolute” responsibility to one user can let organizations and vendors evade their own duties and is incompatible with collaborative decision-making.
+   - **Recommended fix:** Replace “absolute responsibility” with a layered-accountability formulation: users remain responsible for what they submit or approve, while teams, organizations, deployers, and vendors retain responsibility for their respective decisions, controls, and systems.
+
+3. **The manifesto’s absolute prohibitions conflict with its permitted uses**
+   - **Evidence:** Principle 1 allows AI to “sharpen your thinking” but then says, “Never let an LLM speak for you” (lines 20–22). Principle 2 allows AI to “explore options and test your assumptions” but says, “Never let an LLM think for you” (lines 24–27).
+   - **Impact:** Any drafting, translation, summarization, brainstorming, or code suggestion can be characterized as speaking or thinking for the user. The document provides no boundary between acceptable assistance and forbidden delegation, making compliance subjective and unenforceable.
+   - **Recommended fix:** Define the prohibited behavior concretely. For example: “Do not publish AI output you have not reviewed, understood, and intentionally adopted” and “Do not delegate consequential judgment solely to an AI system.”
+
+4. **“Credit remains with you” may encourage concealed AI use or improper appropriation**
+   - **Evidence:** Principle 3, lines 30–32: “Credit and accountability remain with you. Never let an LLM own your work.”
+   - **Impact:** Credit and accountability are different concepts. A person can remain accountable while still disclosing material AI assistance, acknowledging human sources, or satisfying attribution and license obligations. The current wording could be read as permission to claim sole authorship regardless of provenance or local disclosure rules.
+   - **Recommended fix:** Separate accountability from attribution: “You remain accountable for material you submit. Disclose substantial AI assistance where context, policy, or audience expectations warrant it, and preserve attribution to human authors and licensed sources.”
+
+5. **The “own voice” rule can exclude precisely the people AI may empower**
+   - **Evidence:** Principle 1, lines 20–22: “Speak in your own voice” and “Never let an LLM speak for you.” Principle 5, lines 38–40, simultaneously calls for reducing barriers and avoiding gatekeeping.
+   - **Impact:** Some users rely on assistive drafting, translation, speech generation, tone adaptation, or communication support because of disability, language barriers, literacy differences, or neurodivergence. An absolute authenticity rule can stigmatize those uses and contradict Principle 5.
+   - **Recommended fix:** Explicitly protect assistive use: “AI may help express, translate, or communicate your intended meaning. Ensure the final communication accurately reflects your intent, and disclose assistance when materially relevant.”
+
+6. **No standard is provided for reviewing or validating AI output**
+   - **Evidence:** Principle 2 only says to “be aware of bias and mistakes” (lines 24–27), and Principle 3 requires responsibility without specifying controls (lines 29–32).
+   - **Impact:** Awareness is not a mitigation. Users are not told to inspect code, run tests, verify citations, reproduce claims, obtain expert review, document uncertainty, or reject outputs they do not understand.
+   - **Recommended fix:** Add minimum validation requirements proportionate to risk: independent source checking, tests and static analysis for code, security review, citation verification, human approval, and domain-expert review for consequential decisions.
+
+7. **The principles do not distinguish low-risk assistance from high-risk decision-making**
+   - **Evidence:** The scope broadly covers “development and collaboration” (subtitle and lines 13–16), with one undifferentiated set of five rules.
+   - **Impact:** Rewriting a README and generating authentication code are treated under the same framework. The document does not address medical, legal, employment, accessibility, security, financial, or other consequential applications where stronger safeguards or non-use may be appropriate.
+   - **Recommended fix:** Introduce risk tiers. Require stricter review, documentation, authorization, and human decision-making for security-sensitive, safety-critical, regulated, or rights-affecting uses.
+
+### MEDIUM
+
+8. **Key terms are undefined and anthropomorphic**
+   - **Evidence:** The document uses “AI,” “LLMs,” “partner,” “oracle,” “think,” “speak,” and “own” without definitions (lines 13–16 and Principles 1–4).
+   - **Impact:** “AI” may include predictive systems, code completion, classifiers, autonomous agents, and generative models, but the text appears primarily aimed at LLMs. Claims that an LLM can think, own work, or be a partner blur tool capabilities and legal responsibility.
+   - **Recommended fix:** Add a definitions and scope section. Use functional language such as “generate text,” “recommend actions,” or “produce code,” rather than attributing agency or ownership to the model.
+
+9. **The bias guidance is superficial and contains no inclusion safeguards**
+   - **Evidence:** Principle 2 merely says, “Be aware of bias and mistakes” (line 26); Principle 5 says to “Foster inclusion” (lines 38–40).
+   - **Impact:** There is no direction to test disparate impacts, involve affected communities, support accessibility, challenge abusive content, or provide appeal and correction mechanisms. The inclusion commitment is therefore aspirational rather than actionable.
+   - **Recommended fix:** Require representative evaluation, accessibility review, consultation with affected groups, documented limitations, channels for correction, and avoidance of AI uses that materially discriminate or silence participants.
+
+10. **Principle 5 is too vague to address harassment, power imbalances, or gatekeeping**
+    - **Evidence:** Lines 38–40: “AI should empower people and reduce barriers” and “Never let an LLM discourage someone else.”
+    - **Impact:** An LLM does not independently “discourage” someone; a person deploys or shares its output. The wording does not cover automated rejection, hostile review comments, spam, impersonation, participation flooding, replacement of mentorship, or unequal access to paid tools.
+    - **Recommended fix:** Assign duties to users and organizations: do not use AI to harass, impersonate, mass-reject, overwhelm maintainers, or exclude contributors; preserve meaningful human appeal and equitable participation.
+
+11. **The document lacks a policy for disclosure in collaborative settings**
+    - **Evidence:** No principle explains when contributors should identify AI-generated code, prose, reviews, issues, or comments. Principle 1’s authenticity language and Principle 3’s credit language are not substitutes for a disclosure rule.
+    - **Impact:** Collaborators may need disclosure to assess provenance, review burden, licensing risk, or compliance with project policies. Conversely, mandatory disclosure of every trivial assistive use could invade privacy or stigmatize accessibility tools.
+    - **Recommended fix:** Establish a materiality-based rule: disclose substantial AI-generated contributions or uses that affect risk, provenance, or reviewer workload, while exempting routine spelling, formatting, or private accessibility support unless policy requires otherwise.
+
+12. **The manifesto ignores source provenance and the rights of human creators**
+    - **Evidence:** The document discusses responsibility and credit only in relation to the user and LLM (Principle 3), not training-data provenance, copied output, citations, or third-party authors.
+    - **Impact:** Generated output may reproduce protected text or code, fabricate attribution, or conflict with project licenses. “Credit remains with you” intensifies this concern.
+    - **Recommended fix:** Require users to verify origins where material similarity is suspected, preserve notices and attribution, check license compatibility, avoid requesting imitation of living creators where inappropriate, and never rely on generated citations without verification.
+
+13. **The signature process is exclusionary and underspecified**
+    - **Evidence:** § “Support,” lines 46–47: “You can sign via GitHub or LinkedIn.”
+    - **Impact:** Requiring accounts on two commercial platforms excludes people without those accounts, users in restricted regions, privacy-conscious participants, and some nontechnical stakeholders. It also does not explain what data is collected, whether signatures are public, or how consent can be withdrawn.
+    - **Recommended fix:** Offer a platform-independent signing mechanism and publish a privacy notice covering data collected, publication, verification, retention, removal, and moderation of fraudulent signatures.
+
+14. **The claim of “87 people” is unverifiable and will become stale**
+    - **Evidence:** § “Support,” line 46: “87 people have signed this manifesto.” No date, source, verification method, or link to a signatory list is supplied.
+    - **Impact:** The statement is fragile social proof. It can become false immediately and cannot be audited from the document.
+    - **Recommended fix:** Use a dynamically sourced count on the website or write “As of [date], 87 verified signatories,” with a link and an explanation of verification criteria.
+
+15. **There is no governance, enforcement, or amendment process**
+    - **Evidence:** The document labels itself “Version 1.0” (line 7) but gives no maintainer, repository, issue process, review schedule, amendment rules, or handling of signatories when terms change.
+    - **Impact:** Readers cannot report problems, propose revisions, determine which text they signed, or know whether future versions bind existing signatories.
+    - **Recommended fix:** Add maintainers, canonical repository, changelog, feedback route, revision procedure, archived versions, effective dates, and a rule explaining whether signatures attach to a specific version.
+
+16. **The source inspiration is not adequately documented**
+    - **Evidence:** § “Why this matters,” line 16: “Inspired by Daniel Roe’s post ‘Using AI in open source.’” No URL, publication date, access date, or explanation of whether any language was adapted is included.
+    - **Impact:** Readers cannot inspect the source, assess what was borrowed, or determine whether attribution or license conditions apply.
+    - **Recommended fix:** Provide a complete citation and link. If language or structure was adapted, identify that fact and comply with the source’s applicable license or permission terms.
+
+17. **The license choice conflicts with broad adoption and is insufficiently explained**
+    - **Evidence:** Footer, line 49: “CC-BY-NC-SA-4.0.”
+    - **Impact:** The NonCommercial restriction can prevent companies, commercial open-source sponsors, training providers, publishers, and consultants from redistributing or adapting the manifesto. “NC” is also context-sensitive and may deter legitimate use. ShareAlike can complicate incorporation into mixed-license policy documents.
+    - **Recommended fix:** If broad adoption is the objective, consider CC BY 4.0 or CC BY-SA 4.0. At minimum, link the full license, identify the licensor, explain intended commercial uses, and provide a contact for additional permissions.
+
+### LOW
+
+18. **The opening is promotional rather than precise**
+    - **Evidence:** § “Why this matters,” line 13: “AI gives us superpowers.”
+    - **Impact:** This hype framing overstates capability, minimizes harms, and sits awkwardly in a responsibility document.
+    - **Recommended fix:** Replace it with a balanced statement describing both benefits and risks, such as: “AI tools can increase productivity and access, but they also introduce reliability, security, privacy, and equity risks.”
+
+19. **The title and subtitle are repetitive and do not define the intended audience**
+    - **Evidence:** “The AI Manifesto,” “Using AI responsibly in Development and Collaboration,” and “Guiding responsible AI in development and collaboration” repeat the same concept at the start.
+    - **Impact:** It remains unclear whether the document addresses individual developers, open-source maintainers, employers, communities, tool vendors, or all of them.
+    - **Recommended fix:** Remove the duplicate tagline and add a scope statement identifying intended audiences and covered activities.
+
+20. **The “Support” heading is misleading**
+    - **Evidence:** § “Support,” lines 44–47, contains signing, badge, and sharing instructions rather than help, implementation resources, or support channels.
+    - **Impact:** Readers may expect guidance, contact information, or resources for applying the principles.
+    - **Recommended fix:** Rename it “Sign and share,” and add a separate “Resources and contact” section if implementation support is intended.
+
+21. **The manifesto provides no examples, making ambiguous principles harder to apply**
+    - **Evidence:** All five principles are short normative statements with no compliant or noncompliant examples.
+    - **Impact:** Users cannot consistently interpret boundaries such as “own the strategy,” “speak in your own voice,” or “replace your curiosity.”
+    - **Recommended fix:** Add concise examples for code generation, issue drafting, code review, translation, research, security-sensitive code, and accessibility assistance.
+
+22. **The footer is not a complete, robust license notice**
+    - **Evidence:** Line 49 gives only the domain and SPDX-like license identifier.
+    - **Impact:** In copied or offline versions, it may be unclear who owns the text, where the canonical version is, and how to access the license terms.
+    - **Recommended fix:** Include a copyright holder and year, canonical URL, and full license URL, for example: “© [name/year]. Licensed under CC BY-NC-SA 4.0: https://creativecommons.org/licenses/by-nc-sa/4.0/.”
+
+═══ Cross-model synthesis ═══
+
+Both models agree: the enforcement vacuum is the critical
+structural defect. Five absolute prohibitions with zero
+consequence mechanisms. Both also independently identified
+the P1/P5 contradiction and the absence of any data-safeguard
+language.
+
+Fable found: unverifiable signatory count, OAuth commitment
+asymmetry, jurisdiction-blindness, frozen-at-1.0 versioning,
+and the CC-BY-NC-SA licence tension.
+
+GPT-5.6 adds: additional dimensions neither model initially
+surfaced — a second pass by a different model family catches
+issues that even a deeply sceptical first pass can miss.
+
+A document about AI, adversarially reviewed by AI. If the
+manifesto is right, DARc's findings are worth considering.
+If it is flawed, DARc found the flaws. Either outcome
+validates the premise of adversarial review.
